@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-ligh" data-turbolinks='false'>
+  <!-- <a class="navbar-brand" href="<%= root_path %>"><%= image_tag 'vivegranel.png' %></a> -->
+  <%= link_to image_tag('vivegranel.png'), root_path, class: "navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
+      <li class="nav-item active">
+        <%= link_to current_user.email, '', class: 'nav-link'  %>
+      </li>
+      <% end %>
+      <li class="nav-item active">
+        <%= link_to 'Nosotros', '', class: 'nav-link' %>
+      </li>
+      <li class="nav-item active">
+        <%= link_to 'Carro de compras', '', class: 'nav-link' %>
+      </li>
+      <li class="nav-item active dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+           role="button" data-toggle="dropdown" aria-haspopup="true"
+           aria-expanded="false">
+          Usuario
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% if !user_signed_in? %>
+            <%= link_to 'Crear usuario nuevo', new_user_registration_path, class: 'dropdown-item' %>
+            <%= link_to 'Iniciar sesión', new_user_session_path, class: 'dropdown-item' %>
+            <div class="dropdown-divider"></div>
+          <% else %>
+            <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

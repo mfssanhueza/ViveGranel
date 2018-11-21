@@ -4,13 +4,13 @@
 <div class="row">
   <% @products.each do |p| %>
     <div class="col-sm-4">
-      <div class="card">
+      <div class="card mb-3">
         <%= image_tag "#{p.photo}" %>
         <div class="card-body">
           <h5 class="card-title"><%= p.name %></h5>
           <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat.</p>
           <h3 class="card-title">$<%= p.price %></h3>
-          <a href="#" class="btn btn-primary">Comprar</a>
+          <a href="#" class="btn btn-outline-success">Comprar</a>
         </div>
       </div>
     </div>
