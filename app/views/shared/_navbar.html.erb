@@ -7,23 +7,20 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
-      <% if user_signed_in? %>
-      <li class="nav-item active">
-        <%= link_to current_user.email, '', class: 'nav-link'  %>
-      </li>
-      <% end %>
-      <li class="nav-item active">
-        <%= link_to 'Nosotros', '', class: 'nav-link' %>
-      </li>
-      <li class="nav-item active">
-        <%= link_to 'Carro de compras', '', class: 'nav-link' %>
-      </li>
       <li class="nav-item active dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-           role="button" data-toggle="dropdown" aria-haspopup="true"
-           aria-expanded="false">
-          Usuario
-        </a>
+        <% if user_signed_in? %>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+             role="button" data-toggle="dropdown" aria-haspopup="true"
+             aria-expanded="false">
+            <%= current_user.email %>
+          </a>
+        <% else %>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+             role="button" data-toggle="dropdown" aria-haspopup="true"
+             aria-expanded="false">
+            Usuario
+          </a>
+        <% end %>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <% if !user_signed_in? %>
             <%= link_to 'Crear usuario nuevo', new_user_registration_path, class: 'dropdown-item' %>
@@ -34,6 +31,18 @@
           <% end %>
         </div>
       </li>
+      <!-- <% if user_signed_in? %>
+      <li class="nav-item active">
+        <%= link_to current_user.email, '', class: 'nav-link'  %>
+      </li>
+      <% end %> -->
+      <li class="nav-item active">
+        <%= link_to 'Nosotros', '', class: 'nav-link' %>
+      </li>
+      <li class="nav-item active">
+        <%= link_to 'Carro de compras', '', class: 'nav-link' %>
+      </li>
+
     </ul>
   </div>
 </nav>
