@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag @thing.image %>
+
+<p>
+  <strong>
+    <%= @thing.name %>
+  </strong>
+</p>
+<p><%= @thing.description %></p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= @thing.price %>
+</p>
+
+<%= link_to 'Editar', edit_thing_path(@thing) %> |
+<%= link_to 'Volver', things_path %>
